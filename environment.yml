@@ -1,0 +1,15 @@
+name: ml-md-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy                # Cálculos numéricos
+  - matplotlib           # Visualización de datos
+  - ase                  # Manipulación de estructuras atómicas y trayectorias
+  - pip                  # Para instalar paquetes que no están en conda
+  - pip:
+      - deepmd-kit       # Paquete central de entrenamiento ML
+      - dpdata           # Manejo de conjuntos de datos para DeepMD-kit (contiene LabeledSystem y MultiSystems)
+      - tensorflow==2.9.0 #Versión de TensorFlow adecuada
+

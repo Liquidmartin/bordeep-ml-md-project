@@ -1,0 +1,3 @@
+con el primer ambiente hciimos todo hasta llegar al entrenamiento de la red.
+Despues con el segundo ambiente se puede hacer el entrenamiento de la red
+

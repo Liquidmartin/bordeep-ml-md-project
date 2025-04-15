@@ -1,0 +1,53 @@
+INSTALACIÓN EXITOSA DE DEEPMD-KIT EN CPU CON TENSORFLOW 2.9.1
+
+ENTORNO USADO:
+- Nombre del entorno: ml-md-env2
+- Python 3.9
+- TensorFlow 2.9.1 (CPU)
+- DeepMD-kit compilado manualmente
+- NumPy 1.25.2
+- SciPy 1.9.3
+- dpdata
+- Herramientas: cmake, make
+
+PASOS REALIZADOS:
+
+① Crear el entorno base con Conda:
+----------------------------------
+conda create -n ml-md-env2 python=3.9 numpy=1.25.2 scipy=1.9.3 matplotlib ase cmake make pip -y
+conda activate ml-md-env2
+
+② Instalar TensorFlow compatible:
+----------------------------------
+pip install tensorflow==2.9.1
+
+③ Instalar dpdata (módulo para manejo de datos DeepMD):
+--------------------------------------------------------
+pip install dpdata
+
+④ Instalar DeepMD-kit compilado con TensorFlow 2.9.1:
+------------------------------------------------------
+pip install --no-cache-dir --no-binary deepmd-kit deepmd-kit
+
+⑤ Verificación:
+----------------
+python -c "import deepmd, tensorflow as tf; print('✅ DeepMD funcionando con TensorFlow', tf.__version__)"
+
+⑥ Ejecución de entrenamiento:
+------------------------------
+dp train input.json -l log.log
+
+OPCIONAL – Evitar advertencias sobre GPU:
+-----------------------------------------
+export CUDA_VISIBLE_DEVICES=""
+export TF_CPP_MIN_LOG_LEVEL=2
+
+OPCIONAL – Guardar entorno para reproducibilidad:
+--------------------------------------------------
+conda activate ml-md-env2
+conda env export > deepmd-ok.yml
+
+Para recrear el entorno:
+------------------------
+conda env create -f deepmd-ok.yml
+conda activate ml-md-env2
