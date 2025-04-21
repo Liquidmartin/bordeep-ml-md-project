@@ -1,92 +1,111 @@
-# 🧠 Machine Learning for Molecular Dynamics (ML-MD)
+# 🧠 ML-MD Project: Training Potentials with DeepMD-kit
 
-Este proyecto contiene las herramientas necesarias para entrenar modelos de Machine Learning aplicados a la dinámica molecular, especialmente usando **DeepMD-kit**, **ASE** y **LAMMPS**.
-
-Fue desarrollado en el marco de un postdoctorado en el grupo de investigación en Burdeos, con el objetivo de facilitar la integración de métodos de ML en simulaciones de dinámica molecular.
+This project provides tools for processing, filtering, and transforming data from VASP to train neural networks using **DeepMD-kit**. It also includes an energy conservation analysis for trajectories and tools to prepare the training dataset.
 
 ---
 
-## 📂 Estructura del proyecto
+## 📂 Project Structure
 
 ```
-ml-md-project/
-├── data/           # Configuraciones atómicas (POSCAR, .traj, etc.)
-├── scripts/        # Scripts de entrenamiento, preprocesamiento y análisis
-├── models/         # Modelos entrenados (frozen_model.pb, checkpoints)
-├── results/        # Gráficos y métricas
-├── notebooks/      # Notebooks explicativos y ejemplos paso a paso
-├── environment.yml # Entorno conda con dependencias
-└── README.md       # Este documento
+.
+├── data/                       # Raw and processed data (.xml, .traj)
+│   ├── all_oszicar/           # OSZICAR files from VASP
+│   ├── all_vasprun/           # vasprun.xml files from VASP
+│   └── vasp_2_deepmd/         # Data ready for DeepMD training
+├── results/                   # Histograms and summary of analysis
+├── scripts/
+│   ├── analisis_oscicar.py    # Filters trajectories with poor energy conservation
+│   ├── vasp_2_deppmd.py       # Converts and filters data for DeepMD-kit
+│   └── to_train_NN.sh         # Shell script to launch training
+├── environment.yml            # Conda environment for preprocessing
+├── environment2.yml           # Conda environment for DeepMD training
+└── README.md                  # This file
 ```
 
 ---
 
-## 🚀 Cómo comenzar
+## 🔧 Environments
 
-### 1. Clonar el repositorio (cuando esté en GitHub)
-```bash
-git clone https://github.com/tu-usuario/ml-md-project.git
-cd ml-md-project
-```
+- `environment.yml`: used for data processing and preparation.
+- `environment2.yml`: used to compile and train the model with DeepMD.
 
-### 2. Crear y activar el entorno
-```bash
-conda env create -f environment.yml
-conda activate ml-md-env
-```
-
-### 3. Ejecutar un ejemplo mínimo
-```bash
-python scripts/hello_ml.py
-```
-
-### 4. Ejecutar una simulación con LAMMPS y el modelo entrenado
-
-Este proyecto asume que tienes instalado LAMMPS como ejecutable (`lmp`). No se utiliza `lammps-cython` para evitar problemas de compilación.
-
-```bash
-lmp -in input.lammps
-```
-
-El archivo `input.lammps` debe estar configurado para usar el modelo de DeepMD (`frozen_model.pb`) como potencial.
+Both include essential dependencies: `deepmd-kit`, `dpdata`, `ASE`, `TensorFlow`, etc.
 
 ---
 
-## 📦 Dependencias principales
+## ⚙️ Main Scripts
 
-Estas son las librerías clave utilizadas en este proyecto:
+### 🔹 `analisis_oscicar.py`
+- Checks if energy conservation is satisfied in each trajectory.
+- Moves failing files to `bad_traj/`.
+- Generates a `.csv` summary of bad trajectories.
 
-| Librería        | Uso principal |
-|-----------------|----------------|
-| **ASE**         | Manipulación de estructuras atómicas y trayectorias |
-| **DeepMD-kit**  | Entrenamiento de redes neuronales para energías y fuerzas |
-| **dpdata**      | Preparación de conjuntos de datos para DeepMD-kit |
-| **NumPy**       | Cálculos numéricos |
-| **matplotlib**  | Visualización de datos |
+### 🔹 `vasp_2_deppmd.py`
+- Reads `vasprun.xml` files.
+- Filters structures by potential energy.
+- Saves and plots energy histograms.
+- Builds `.npy` training/validation datasets using `dpdata`.
 
----
-
-## 🔍 Flujo de trabajo general
-
-1. **Conversión de datos**: POSCAR o .traj → formato DeepMD
-2. **Entrenamiento**: usar `dp train` con configuraciones y etiquetas
-3. **Validación**: comparar energías y fuerzas con DFT
-4. **Simulación**: correr LAMMPS con el modelo `.pb`
-5. **Análisis**: generación de gráficos y métricas
+### 🔹 `to_train_NN.sh`
+- Executes DeepMD training using `dp train`.
 
 ---
 
-## ⚠️ Sobre LAMMPS y Python (`lammps-cython`)
+## 🚀 How to Use This Repository
 
-No se incluye el paquete `lammps-cython` en este entorno debido a errores frecuentes durante su compilación. Para la mayoría de los usos, especialmente en simulaciones de dinámica molecular, basta con usar LAMMPS como ejecutable externo (`lmp`).
+1. **Create base environment**:
+   ```bash
+   conda env create -f environment.yml
+   conda activate ml-md-env
+   ```
 
-Si en el futuro se requiere controlar LAMMPS directamente desde Python, se recomienda seguir la [guía oficial de instalación del wrapper Python de LAMMPS](https://docs.lammps.org/Python_install.html).
+2. **Analyze energy conservation**:
+   ```bash
+   python scripts/analisis_oscicar.py
+   ```
+
+3. **Preprocess data for DeepMD**:
+   ```bash
+   python scripts/vasp_2_deppmd.py
+   ```
+
+4. **Train the neural network**:
+   - Switch to training environment if needed:
+     ```bash
+     conda deactivate
+     conda env create -f environment2.yml
+     conda activate ml-md-env2
+     ```
+   - Launch training:
+     ```bash
+     bash scripts/to_train_NN.sh
+     ```
 
 ---
 
-## 📬 Contacto
+## 🧬 Requirements
 
-Para dudas o colaboración:
+- Python 3.9
+- ASE
+- DeepMD-kit
+- dpdata
+- TensorFlow 2.9.x
+- matplotlib
+- Conda
 
-**Raidel Martín-Barrios**  
-📧 raidelmartinbarrios@gmail.com
+---
+
+## 🧑‍💻 Author
+
+**Raidel Martin-Barrios**  
+📧 rmartin9301@gmail.com  
+🔗 [GitHub: Liquidmartin](https://github.com/Liquidmartin)
+
+---
+
+## 📄 License
+
+Pascal Larregaray Group  
+Institut de Science Moléculaire (ISM), Université de Bordeaux
+
+---
