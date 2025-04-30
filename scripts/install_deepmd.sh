@@ -20,4 +20,7 @@ conda activate ml-md-env || { echo "Failed to activate the environment"; exit 1;
 echo "Installing DeepMD-kit from source..."
 pip install --no-binary deepmd-kit deepmd-kit
 
+echo "Installing dpdata from source..."
+pip install dpdata
+
 echo "✅ DeepMD-kit installation completed successfully."
