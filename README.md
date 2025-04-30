@@ -14,26 +14,29 @@ This project provides tools for processing, filtering, and transforming data fro
 │   └── vasp_2_deepmd/         # Data ready for DeepMD training
 ├── results/                   # Histograms and summary of analysis
 ├── scripts/
+│   ├── install_deepmd.sh      # Prepare work environment ready to use DeepMD-kit
 │   ├── analisis_oscicar.py    # Filters trajectories with poor energy conservation
 │   ├── vasp_2_deppmd.py       # Converts and filters data for DeepMD-kit
-│   └── to_train_NN.sh         # Shell script to launch training
+│   └── to_train_NN.sh         # Shell script to launch training 
 ├── environment.yml            # Conda environment for preprocessing
-├── environment2.yml           # Conda environment for DeepMD training
 └── README.md                  # This file
 ```
 
 ---
 
-## 🔧 Environments
+## 🔧 Environment
 
 - `environment.yml`: used for data processing and preparation.
-- `environment2.yml`: used to compile and train the model with DeepMD.
 
-Both include essential dependencies: `deepmd-kit`, `dpdata`, `ASE`, `TensorFlow`, etc.
+Include essential dependencies: `ASE`, `TensorFlow`, etc.
 
 ---
 
 ## ⚙️ Main Scripts
+
+### 🔹 `install_deepmd.sh`
+- Creates the required environment with ASE, TensorFlow, and other dependencies.
+- Installs DeepMD-kit compiled from source to ensure compatibility with this environment.
 
 ### 🔹 `analisis_oscicar.py`
 - Checks if energy conservation is satisfied in each trajectory.
@@ -55,7 +58,7 @@ Both include essential dependencies: `deepmd-kit`, `dpdata`, `ASE`, `TensorFlow`
 
 1. **Create base environment**:
    ```bash
-   conda env create -f environment.yml
+   ./scripts/install_deepmd.sh
    conda activate ml-md-env
    ```
 
@@ -70,16 +73,10 @@ Both include essential dependencies: `deepmd-kit`, `dpdata`, `ASE`, `TensorFlow`
    ```
 
 4. **Train the neural network**:
-   - Switch to training environment if needed:
      ```bash
-     conda deactivate
-     conda env create -f environment2.yml
-     conda activate ml-md-env2
-     ```
    - Launch training:
-     ```bash
-     bash scripts/to_train_NN.sh
-     ```
+     ./scripts/to_train_NN.sh
+     
 
 ---
 
@@ -109,3 +106,11 @@ Pascal Larregaray Group
 Institut de Science Moléculaire (ISM), Université de Bordeaux
 
 ---
+
+## 📄 Acknowledgments 
+
+
+We gratefully acknowledge the University of Bordeaux, the Institut des Sciences Moléculaires (ISM), and the CURTA platform for their support and computational resources. This work was funded by the DALTON-ANR project. Special thanks to the Maurice MONNERVILLE group at the University of Lille for their training and support in laying the foundations for machine learning potential training.
+
+---
+
