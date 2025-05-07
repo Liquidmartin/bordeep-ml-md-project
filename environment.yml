@@ -15,6 +15,7 @@ dependencies:
   - tqdm
   - pip:
       - tensorflow==2.9.1
+      - scikit-learn
 
 
 
