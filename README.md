@@ -57,6 +57,13 @@ Include essential dependencies: `ASE`, `TensorFlow`, etc.
 - Excludes previously used ones for training and validation.
 - Saves new ones for comparison ( data_comparison.traj ).
 
+### 🔹 `plot_comparison.py`
+- Loads structures from a .traj file.
+- Computes energies and forces using a trained DeepMD model.
+- Compares predicted vs DFT values with error metrics (MAE, RMSE, R²).
+- Plots energy and force correlations and error distributions.
+
+
 ---
 
 ## 🚀 How to Use This Repository
@@ -77,6 +84,9 @@ Include essential dependencies: `ASE`, `TensorFlow`, etc.
 
 5. **Preprocess data for comparison between DFT and NN**:
    python scripts/data_comparison.py
+
+6. **Compare DFT and DeepMD predictions**:
+   python scripts/plot_comparison.py
      
 
 ---
