@@ -55,7 +55,7 @@
   },
   "learning_rate": {
     "type": "exp",
-    "decay_steps": 10,
+    "decay_steps": 1,
     "start_lr": 0.0010,
     "stop_lr": 0.000010,
     "scale_by_worker": "linear"
@@ -97,11 +97,11 @@
       "auto_prob": "prob_sys_size",
       "sys_probs": null
     },
-    "numb_steps": 1000,
+    "numb_steps": 10,
     "seed": 10,
     "disp_file": "lcurve.out",
-    "disp_freq": 100,
-    "save_freq": 1000,
+    "disp_freq": 2,
+    "save_freq": 10,
     "save_ckpt": "checkpoint_dir/model.ckpt",
     "disp_training": true,
     "time_training": true,

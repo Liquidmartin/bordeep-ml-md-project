@@ -1,64 +1,55 @@
-[2025-04-14 20:37:46,660] DEEPMD INFO    deepmd.utils.summary                           _____               _____   __  __  _____           _     _  _   
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          |  __ \             |  __ \ |  \/  ||  __ \         | |   (_)| |  
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          | |  | |  ___   ___ | |__) || \  / || |  | | ______ | | __ _ | |_ 
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          | |  | | / _ \ / _ \|  ___/ | |\/| || |  | ||______|| |/ /| || __|
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          | |__| ||  __/|  __/| |     | |  | || |__| |        |   < | || |_ 
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          |_____/  \___| \___||_|     |_|  |_||_____/         |_|\_\|_| \__|
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          Please read and cite:
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          Wang, Zhang, Han and E, Comput.Phys.Comm. 228, 178-184 (2018)
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          Zeng et al, J. Chem. Phys., 159, 054801 (2023)
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          Zeng et al, arxiv:2502.19161
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          See https://deepmd.rtfd.io/credits/ for details.
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          --------------------------------------------------------------------------------------------------------------
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          installed to:          /home/raidelmb/anaconda3/envs/ml-md-env2/lib/python3.9/site-packages/deepmd
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          source:                
-[2025-04-14 20:37:46,661] DEEPMD INFO    deepmd.utils.summary                          source branch:         
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          source commit:         
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          source commit at:      
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          use float prec:        double
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          build variant:         cpu
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          Backend:               TensorFlow
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          TF ver:                v2.9.0-18-gd8ce9f9c301
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          build with TF ver:     2.9.1
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          build with TF inc:     /home/raidelmb/anaconda3/envs/ml-md-env2/lib/python3.9/site-packages/tensorflow/include
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                                                 /home/raidelmb/anaconda3/envs/ml-md-env2/lib/python3.9/site-packages/tensorflow/include
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          build with TF lib:     
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          running on:            raidel-laptop
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          computing device:      cpu:0
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          CUDA_VISIBLE_DEVICES:  
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          Count of visible GPUs: 0
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          num_intra_threads:     0
-[2025-04-14 20:37:46,662] DEEPMD INFO    deepmd.utils.summary                          num_inter_threads:     0
-[2025-04-14 20:37:46,663] DEEPMD INFO    deepmd.utils.summary                          --------------------------------------------------------------------------------------------------------------
-[2025-04-14 20:37:46,884] DEEPMD INFO    deepmd.utils.data_system                      ---Summary of DataSystem: training     -----------------------------------------------
-[2025-04-14 20:37:46,884] DEEPMD INFO    deepmd.utils.data_system                      found 1 system(s):
-[2025-04-14 20:37:46,885] DEEPMD INFO    deepmd.utils.data_system                                                          system  natoms  bch_sz   n_bch       prob  pbc
-[2025-04-14 20:37:46,885] DEEPMD INFO    deepmd.utils.data_system                      -- vasp_2_deepmd/deepmd_data/training_data      47     512      28  1.000e+00    T
-[2025-04-14 20:37:46,885] DEEPMD INFO    deepmd.utils.data_system                      --------------------------------------------------------------------------------------
-[2025-04-14 20:37:46,915] DEEPMD INFO    deepmd.utils.data_system                      ---Summary of DataSystem: validation   -----------------------------------------------
-[2025-04-14 20:37:46,915] DEEPMD INFO    deepmd.utils.data_system                      found 1 system(s):
-[2025-04-14 20:37:46,915] DEEPMD INFO    deepmd.utils.data_system                                                          system  natoms  bch_sz   n_bch       prob  pbc
-[2025-04-14 20:37:46,915] DEEPMD INFO    deepmd.utils.data_system                      -- sp_2_deepmd/deepmd_data/validation_data      47     512       7  1.000e+00    T
-[2025-04-14 20:37:46,915] DEEPMD INFO    deepmd.utils.data_system                      --------------------------------------------------------------------------------------
-[2025-04-14 20:37:46,915] DEEPMD INFO    deepmd.tf.train.trainer                       training without frame parameter
-[2025-04-14 20:37:46,916] DEEPMD INFO    deepmd.tf.train.trainer                       data stating... (this step may take long time)
-[2025-04-14 20:37:50,523] DEEPMD INFO    deepmd.tf.train.trainer                       built lr
-[2025-04-14 20:37:52,208] DEEPMD INFO    deepmd.tf.train.trainer                       built network
-[2025-04-14 20:37:54,453] DEEPMD INFO    deepmd.tf.train.trainer                       built training
-[2025-04-14 20:37:54,453] DEEPMD WARNING deepmd.env                                    To get the best performance, it is recommended to adjust the number of threads by setting the environment variables OMP_NUM_THREADS, DP_INTRA_OP_PARALLELISM_THREADS, and DP_INTER_OP_PARALLELISM_THREADS. See https://deepmd.rtfd.io/parallelism/ for more information.
-[2025-04-14 20:37:54,590] DEEPMD INFO    deepmd.tf.train.trainer                       initialize model from scratch
-[2025-04-14 20:37:55,099] DEEPMD INFO    deepmd.tf.train.trainer                       start training at lr 1.00e-03 (== 1.00e-03), decay_step 10, decay_rate 0.954993, final lr will be 1.00e-05
-[2025-04-14 20:38:16,410] DEEPMD INFO    deepmd.tf.train.trainer                       batch       0: trn: rmse = 9.57e+00, rmse_e = 1.27e+00, rmse_f = 1.23e-01, lr = 1.00e-03
-[2025-04-14 20:38:16,410] DEEPMD INFO    deepmd.tf.train.trainer                       batch       0: val: rmse = 9.47e+00, rmse_e = 1.27e+00, rmse_f = 1.15e-01
-[2025-04-14 21:25:17,667] DEEPMD INFO    deepmd.tf.train.trainer                       batch     100: trn: rmse = 2.16e+00, rmse_e = 3.68e-03, rmse_f = 8.60e-02, lr = 6.31e-04
-[2025-04-14 21:25:17,681] DEEPMD INFO    deepmd.tf.train.trainer                       batch     100: val: rmse = 2.16e+00, rmse_e = 3.45e-03, rmse_f = 8.60e-02
-[2025-04-14 21:25:17,683] DEEPMD INFO    deepmd.tf.train.trainer                       batch     100: total wall time = 2842.58 s
-[2025-04-14 22:05:37,606] DEEPMD INFO    deepmd.tf.train.trainer                       batch     200: trn: rmse = 1.43e+00, rmse_e = 2.76e-03, rmse_f = 7.15e-02, lr = 3.98e-04
-[2025-04-14 22:05:37,617] DEEPMD INFO    deepmd.tf.train.trainer                       batch     200: val: rmse = 1.49e+00, rmse_e = 2.75e-03, rmse_f = 7.44e-02
-[2025-04-14 22:05:37,618] DEEPMD INFO    deepmd.tf.train.trainer                       batch     200: total wall time = 2419.94 s
-[2025-04-14 22:47:10,865] DEEPMD INFO    deepmd.tf.train.trainer                       batch     300: trn: rmse = 1.12e+00, rmse_e = 2.01e-03, rmse_f = 7.06e-02, lr = 2.51e-04
-[2025-04-14 22:47:10,875] DEEPMD INFO    deepmd.tf.train.trainer                       batch     300: val: rmse = 1.17e+00, rmse_e = 1.98e-03, rmse_f = 7.39e-02
-[2025-04-14 22:47:10,876] DEEPMD INFO    deepmd.tf.train.trainer                       batch     300: total wall time = 2493.26 s
-[2025-04-14 23:26:11,706] DEEPMD INFO    deepmd.tf.train.trainer                       batch     400: trn: rmse = 8.74e-01, rmse_e = 2.57e-03, rmse_f = 6.91e-02, lr = 1.58e-04
-[2025-04-14 23:26:11,713] DEEPMD INFO    deepmd.tf.train.trainer                       batch     400: val: rmse = 8.91e-01, rmse_e = 2.63e-03, rmse_f = 7.05e-02
-[2025-04-14 23:26:11,714] DEEPMD INFO    deepmd.tf.train.trainer                       batch     400: total wall time = 2340.84 s
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                           _____               _____   __  __  _____           _     _  _   
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          |  __ \             |  __ \ |  \/  ||  __ \         | |   (_)| |  
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          | |  | |  ___   ___ | |__) || \  / || |  | | ______ | | __ _ | |_ 
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          | |  | | / _ \ / _ \|  ___/ | |\/| || |  | ||______|| |/ /| || __|
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          | |__| ||  __/|  __/| |     | |  | || |__| |        |   < | || |_ 
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          |_____/  \___| \___||_|     |_|  |_||_____/         |_|\_\|_| \__|
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          Please read and cite:
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          Wang, Zhang, Han and E, Comput.Phys.Comm. 228, 178-184 (2018)
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          Zeng et al, J. Chem. Phys., 159, 054801 (2023)
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          Zeng et al, arxiv:2502.19161
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          See https://deepmd.rtfd.io/credits/ for details.
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          --------------------------------------------------------------------------------------------------------------
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          installed to:          /home/raidelmb/anaconda3/envs/ml-md-env/lib/python3.9/site-packages/deepmd
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          source:                
+[2025-04-30 15:25:16,673] DEEPMD INFO    deepmd.utils.summary                          source branch:         
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          source commit:         
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          source commit at:      
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          use float prec:        double
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          build variant:         cpu
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          Backend:               TensorFlow
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          TF ver:                v2.9.0-18-gd8ce9f9c301
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          build with TF ver:     2.9.1
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          build with TF inc:     /home/raidelmb/anaconda3/envs/ml-md-env3/lib/python3.9/site-packages/tensorflow/include
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                                                 /home/raidelmb/anaconda3/envs/ml-md-env3/lib/python3.9/site-packages/tensorflow/include
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          build with TF lib:     
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          running on:            raidel-laptop
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          computing device:      cpu:0
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          CUDA_VISIBLE_DEVICES:  
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          Count of visible GPUs: 0
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          num_intra_threads:     0
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          num_inter_threads:     0
+[2025-04-30 15:25:16,674] DEEPMD INFO    deepmd.utils.summary                          --------------------------------------------------------------------------------------------------------------
+[2025-04-30 15:25:16,733] DEEPMD INFO    deepmd.utils.data_system                      ---Summary of DataSystem: training     -----------------------------------------------
+[2025-04-30 15:25:16,733] DEEPMD INFO    deepmd.utils.data_system                      found 1 system(s):
+[2025-04-30 15:25:16,733] DEEPMD INFO    deepmd.utils.data_system                                                          system  natoms  bch_sz   n_bch       prob  pbc
+[2025-04-30 15:25:16,733] DEEPMD INFO    deepmd.utils.data_system                      -- vasp_2_deepmd/deepmd_data/training_data      47     512      28  1.000e+00    T
+[2025-04-30 15:25:16,733] DEEPMD INFO    deepmd.utils.data_system                      --------------------------------------------------------------------------------------
+[2025-04-30 15:25:16,746] DEEPMD INFO    deepmd.utils.data_system                      ---Summary of DataSystem: validation   -----------------------------------------------
+[2025-04-30 15:25:16,746] DEEPMD INFO    deepmd.utils.data_system                      found 1 system(s):
+[2025-04-30 15:25:16,746] DEEPMD INFO    deepmd.utils.data_system                                                          system  natoms  bch_sz   n_bch       prob  pbc
+[2025-04-30 15:25:16,746] DEEPMD INFO    deepmd.utils.data_system                      -- sp_2_deepmd/deepmd_data/validation_data      47     512       7  1.000e+00    T
+[2025-04-30 15:25:16,747] DEEPMD INFO    deepmd.utils.data_system                      --------------------------------------------------------------------------------------
+[2025-04-30 15:25:16,747] DEEPMD INFO    deepmd.tf.train.trainer                       training without frame parameter
+[2025-04-30 15:25:16,747] DEEPMD INFO    deepmd.tf.train.trainer                       data stating... (this step may take long time)
+[2025-04-30 15:25:17,841] DEEPMD INFO    deepmd.tf.train.trainer                       built lr
+[2025-04-30 15:25:18,797] DEEPMD INFO    deepmd.tf.train.trainer                       built network
+[2025-04-30 15:25:19,900] DEEPMD INFO    deepmd.tf.train.trainer                       built training
+[2025-04-30 15:25:19,900] DEEPMD WARNING deepmd.env                                    To get the best performance, it is recommended to adjust the number of threads by setting the environment variables OMP_NUM_THREADS, DP_INTRA_OP_PARALLELISM_THREADS, and DP_INTER_OP_PARALLELISM_THREADS. See https://deepmd.rtfd.io/parallelism/ for more information.
+[2025-04-30 15:25:19,965] DEEPMD INFO    deepmd.tf.train.trainer                       initialize model from scratch
+[2025-04-30 15:25:20,267] DEEPMD INFO    deepmd.tf.train.trainer                       start training at lr 1.00e-03 (== 1.00e-03), decay_step 1, decay_rate 0.630957, final lr will be 1.00e-05
+[2025-04-30 15:26:06,870] DEEPMD INFO    deepmd.tf.train.trainer                       batch       0: trn: rmse = 9.54e+00, rmse_e = 1.27e+00, rmse_f = 1.21e-01, lr = 1.00e-03
+[2025-04-30 15:26:06,871] DEEPMD INFO    deepmd.tf.train.trainer                       batch       0: val: rmse = 9.62e+00, rmse_e = 1.27e+00, rmse_f = 1.27e-01
+[2025-04-30 15:28:29,466] DEEPMD INFO    deepmd.tf.train.trainer                       batch       2: trn: rmse = 4.86e+00, rmse_e = 2.40e-01, rmse_f = 1.54e-01, lr = 3.98e-04
+[2025-04-30 15:28:29,469] DEEPMD INFO    deepmd.tf.train.trainer                       batch       2: val: rmse = 4.78e+00, rmse_e = 2.40e-01, rmse_f = 1.48e-01
+[2025-04-30 15:28:29,470] DEEPMD INFO    deepmd.tf.train.trainer                       batch       2: total wall time = 189.20 s
