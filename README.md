@@ -52,30 +52,31 @@ Include essential dependencies: `ASE`, `TensorFlow`, etc.
 ### 🔹 `to_train_NN.sh`
 - Executes DeepMD training using `dp train`.
 
+### 🔹 `data_prediction.py`
+- Loads all atomic configurations.
+- Excludes previously used ones for training and validation.
+- Saves new ones for prediction ( data_prediction.traj ).
+
 ---
 
 ## 🚀 How to Use This Repository
 
 1. **Create base environment**:
-   ```bash
    ./scripts/install_deepmd.sh
    conda activate ml-md-env
-   ```
 
 2. **Analyze energy conservation**:
-   ```bash
    python scripts/analisis_oscicar.py
-   ```
 
 3. **Preprocess data for DeepMD**:
-   ```bash
    python scripts/vasp_2_deppmd.py
-   ```
 
 4. **Train the neural network**:
-     ```bash
    - Launch training:
      ./scripts/to_train_NN.sh
+
+5. **Preprocess data for validate the NN**:
+   python scripts/data_prediction.py
      
 
 ---
