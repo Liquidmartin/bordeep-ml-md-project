@@ -52,10 +52,10 @@ Include essential dependencies: `ASE`, `TensorFlow`, etc.
 ### 🔹 `to_train_NN.sh`
 - Executes DeepMD training using `dp train`.
 
-### 🔹 `data_prediction.py`
+### 🔹 `data_comparison.py`
 - Loads all atomic configurations.
 - Excludes previously used ones for training and validation.
-- Saves new ones for prediction ( data_prediction.traj ).
+- Saves new ones for comparison ( data_comparison.traj ).
 
 ---
 
@@ -75,8 +75,8 @@ Include essential dependencies: `ASE`, `TensorFlow`, etc.
    - Launch training:
      ./scripts/to_train_NN.sh
 
-5. **Preprocess data for validate the NN**:
-   python scripts/data_prediction.py
+5. **Preprocess data for comparison between DFT and NN**:
+   python scripts/data_comparison.py
      
 
 ---
