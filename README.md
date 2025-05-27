@@ -9,11 +9,12 @@ This project provides tools for processing, filtering, and transforming data fro
 ```
 .	
 ├──H2-W(110)
-│  ├── data/                       # Raw and processed data (.xml, .traj)
+│  ├── data/                      # Raw and processed data (.xml, .traj)
 │  │   ├── all_oszicar/           # OSZICAR files from VASP
 │  │   ├── all_vasprun/           # vasprun.xml files from VASP
 │  │   └── vasp_2_deepmd/         # Data ready for DeepMD training
 │  ├── results/                   # Histograms and summary of analysis
+│  ├── dinamica/                  # Dynamic of the system using LAMMPS
 │  └── scripts/
 │      ├── install_deepmd.sh      # Prepare work environment ready to use DeepMD-kit
 │      ├── analisis_oscicar.py    # Filters trajectories with poor energy conservation
