@@ -19,7 +19,7 @@ This project provides tools for processing, filtering, and transforming data fro
 │      ├── analisis_oscicar.py    # Filters trajectories with poor energy conservation
 │      ├── vasp_2_deppmd.py       # Converts and filters data for DeepMD-kit
 │      └── to_train_NN.sh         # Shell script to launch training
-├──H-O-W(110)
+├──H-O/W(110)
 ├── environment.yml            # Conda environment for preprocessing
 └── README.md                  # This file
 ```
