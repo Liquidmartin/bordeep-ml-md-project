@@ -4,7 +4,7 @@
 source ~/anaconda3/etc/profile.d/conda.sh
 
 echo "Creating environment ml-md-env..."
-cd ..
+cd ../../
 conda env create -f environment.yml
 
 # Activate the conda environment (adjust name if needed)
