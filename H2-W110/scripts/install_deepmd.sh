@@ -3,12 +3,12 @@
 # Load Conda into this shell
 source ~/anaconda3/etc/profile.d/conda.sh
 
-echo "Creating environment ml-md-env3..."
+echo "Creating environment ml-md-env..."
 cd ..
 conda env create -f environment.yml
 
 # Activate the conda environment (adjust name if needed)
-echo "Activating environment ml-md-env3..."
+echo "Activating environment ml-md-env..."
 conda activate ml-md-env || { echo "Failed to activate the environment"; exit 1; }
 
 
