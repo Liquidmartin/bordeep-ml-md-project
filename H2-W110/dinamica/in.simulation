@@ -1,0 +1,58 @@
+# Archivo de entrada para LAMMPS
+units metal
+atom_style atomic
+boundary p p p  # Condiciones de frontera periódicas
+
+# Leer el archivo de datos
+read_data ${DATAFILE}
+
+
+#replicate 5 5 1
+
+# Definir un grupo para los átomos de hidrógeno
+ group hydrogen type 1  # Suponiendo que el tipo 1 es hidrógeno
+#
+# # Aplicar velocidad inicial al centro de masa del grupo de hidrógeno
+velocity hydrogen set 0.0 0.0 ${VEL} sum yes units box  # Velocidad inicial en la dirección -z (hacia abajo)
+#
+
+
+# Usar el modelo de DeepMD
+pair_style deepmd ../models/trainin_example_gaudi/graph.pb  # Aquí colocas el archivo entrenado de DeepMD
+pair_coeff * *
+
+# Configurar la simulación
+timestep 0.002  # Paso de tiempo 2 fs
+#timestep 0.0005  # Paso de tiempo 0.5fs
+
+# Condiciones iniciales
+#velocity all create 300.0 12345  # Asignar velocidades iniciales a 300 K
+
+# Fijar el integrador de dinámica molecular
+#fix 1 all nvt temp 300.0 300.0 100.0  # Control de temperatura (NVT)
+fix 1 all nve #tem 300.0 300.0 100.0  # Control de temperatura (NVT)
+
+# Archivo de salida de trayectorias para OVITO
+dump 1 all custom 1 salida_dinamica_energia_23/dump_${i}.lammpstrj id type x y z vx vy vz # Escribir la trayectoria cada 1 pasos dup1 significa el H, y custom 1 cada 1 paso. 
+#dump 1 all custom 1 salida_dinamica_energia_23_t_menor/dump_${i}.lammpstrj id type x y z vx vy vz # Escribir la trayectoria cada 1 pasos dup1 significa el H, y custom 1 cada 1 paso. 
+
+#para hacer el fichero de energias
+
+variable etotal equal etotal
+variable pe equal pe
+variable ke equal ke
+variable step equal step
+
+fix print_energy all print 1 "${step} ${pe} ${ke} ${etotal} " file salida_dinamica_energia_23/energies_${i}.lammpstrj screen no title "Step PE KE Etot "
+#fix print_energy all print 1 "${step} ${pe} ${ke} ${etotal} " file salida_dinamica_energia_23_t_menor/energies_${i}.lammpstrj screen no title "Step PE KE Etot "
+
+
+# Archivo de salida de propiedades termodinámicas
+thermo 10  #frecuancia con la que se escriben las propiedades termodinamicas
+thermo_style custom step temp pe ke etotal # para escribir las propiedades termodinamicas pe (energia potencia) ke (energia cinetica) etotal (energia total)
+
+
+# Ejecutar la simulación durante run No. de pasos
+run 150 #para t=2fs
+#run 600 #para t=0.5fs
+

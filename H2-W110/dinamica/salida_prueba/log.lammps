@@ -1,0 +1,35 @@
+LAMMPS (29 Aug 2024)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+# Archivo de entrada para LAMMPS
+units metal
+atom_style atomic
+boundary p p p  # Condiciones de frontera periódicas
+
+# Leer el archivo de datos
+read_data ${DATAFILE}
+read_data ./data_in/data_POSCAR_1.lammps
+Reading data file ...
+  triclinic box = (0 0 0) to (8.3203391 7.8444909 27.22125) with tilt (2.7734464 0 0)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  47 atoms
+  read_data CPU = 0.006 seconds
+
+
+#replicate 5 5 1
+
+# Definir un grupo para los átomos de hidrógeno
+ group hydrogen type 1  # Suponiendo que el tipo 1 es hidrógeno
+2 atoms in group hydrogen
+#
+# # Aplicar velocidad inicial al centro de masa del grupo de hidrógeno
+velocity hydrogen set 0.0 0.0 ${VEL} sum yes units box  # Velocidad inicial en la dirección -z (hacia abajo)
+velocity hydrogen set 0.0 0.0 -53.5918 sum yes units box  
+#
+
+
+# Usar el modelo de DeepMD
+pair_style deepmd ../models/trainin_example_gaudi/graph.pb  # Aquí colocas el archivo entrenado de DeepMD
+ERROR: Unrecognized pair style 'deepmd' (src/force.cpp:275)
+Last command: pair_style deepmd ../models/trainin_example_gaudi/graph.pb  # Aquí colocas el archivo entrenado de DeepMD

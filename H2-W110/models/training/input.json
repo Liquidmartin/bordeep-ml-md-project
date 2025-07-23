@@ -55,7 +55,7 @@
   },
   "learning_rate": {
     "type": "exp",
-    "decay_steps": 1,
+    "decay_steps": 10,
     "start_lr": 0.0010,
     "stop_lr": 0.000010,
     "scale_by_worker": "linear"
@@ -80,7 +80,7 @@
   "training": {
     "training_data": {
       "systems": [
-        "/home/raidelmb/Documentos/2025/ML/ml-md-project/data/vasp_2_deepmd/deepmd_data/training_data"
+        "/home/raidelmb/Documentos/2025/ML/ml-md-project/H2-W110/data/vasp_2_deepmd/deepmd_data/training_data"
       ],
       "batch_size": 512,
       "set_prefix": "set",
@@ -89,7 +89,7 @@
     },
     "validation_data": {
       "systems": [
-        "/home/raidelmb/Documentos/2025/ML/ml-md-project/data/vasp_2_deepmd/deepmd_data/validation_data"
+        "/home/raidelmb/Documentos/2025/ML/ml-md-project/H2-W110/data/vasp_2_deepmd/deepmd_data/validation_data"
       ],
       "batch_size": 512,
       "numb_btch": 1,
@@ -97,11 +97,11 @@
       "auto_prob": "prob_sys_size",
       "sys_probs": null
     },
-    "numb_steps": 10,
+    "numb_steps": 100,
     "seed": 10,
     "disp_file": "lcurve.out",
-    "disp_freq": 2,
-    "save_freq": 10,
+    "disp_freq": 100,
+    "save_freq": 1000,
     "save_ckpt": "checkpoint_dir/model.ckpt",
     "disp_training": true,
     "time_training": true,
