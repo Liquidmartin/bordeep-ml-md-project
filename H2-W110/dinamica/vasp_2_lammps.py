@@ -3,10 +3,10 @@ from ase.io import read, write
 #Este codigo convierte POSCARS existentes en archivos .lammps  con lasmisas condiciones de los POSCRAS
 
 # Directorio donde se encuentran los archivos POSCAR
-poscar_dir = '/home/raidelmb/Documentos/2024/ML/DeepMD/h-w110-300meV-alberto/dinamica/LAMMPS/all_poscar'
+poscar_dir = './data_dft'
 
 # Directorio donde se guardarán los archivos de datos para LAMMPS
-output_dir = '/home/raidelmb/Documentos/2024/ML/DeepMD/h-w110-300meV-alberto/dinamica/LAMMPS/data_lammps_h2_w110'
+output_dir = './data_in'
 
 # Crear el directorio de salida si no existe
 if not os.path.exists(output_dir):
