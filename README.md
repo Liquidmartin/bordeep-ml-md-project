@@ -15,14 +15,21 @@ This project provides tools for processing, filtering, and transforming data fro
 │  │   └── vasp_2_deepmd/         # Data ready for DeepMD training
 │  ├── results/                   # Histograms and summary of analysis
 │  ├── dinamica/                  # Dynamic of the system using LAMMPS
+│  │   ├── data_dft/              # DFT reference input files (eg. POSCAR)
+│  │   ├── data_in/               # LAMMPS input files created
+│  │   ├── salida_prueba/         # Example of simulation output
+│  │   ├── env_lammps.yml         # Conda environment for use LAMMPS
+│  │   ├── vasp_2_lammps.py       # Input files VASP-to-LAMMPS structure converter
+│  │   ├── in.simulation          # Main LAMMPS input file
+│  │   └── lansamiento.sh         # Script to run the simulation 
 │  └── scripts/
 │      ├── install_deepmd.sh      # Prepare work environment ready to use DeepMD-kit
 │      ├── analisis_oscicar.py    # Filters trajectories with poor energy conservation
 │      ├── vasp_2_deppmd.py       # Converts and filters data for DeepMD-kit
 │      └── to_train_NN.sh         # Shell script to launch training
-├──H/O-W(110)
-├── environment.yml            # Conda environment for preprocessing
-└── README.md                  # This file
+├── environment.yml               # Conda environment for preprocessing
+├── README.md                     # This file
+└── H/O-W(110)                    # Raul's study system
 ```
 
 ---
@@ -30,6 +37,7 @@ This project provides tools for processing, filtering, and transforming data fro
 ## 🔧 Environment
 
 - `environment.yml`: used for data processing and preparation.
+- H2-W(110)/dinamica/env_lammps.yml`: dedicated environment for LAMMPS simulations.
 
 Include essential dependencies: `ASE`, `TensorFlow`, etc.
 
@@ -66,11 +74,21 @@ Include essential dependencies: `ASE`, `TensorFlow`, etc.
 - Compares predicted vs DFT values with error metrics (MAE, RMSE, R²).
 - Plots energy and force correlations and error distributions.
 
+### 🔹 `dinamica/vasp_2_lammps.py`
+- Converts a DFT POSCAR structure into a LAMMPS-compatible input file.  
+- This is used to generate the initial atomic configuration for the MD simulation.
+
+
+### 🔹 `dinamica/lansamiento.sh`
+- Launches an MD simulation in LAMMPS using the trained PES.
 
 ---
 
 ## 🚀 How to Use This Repository
 
+0. **Enter the system folder**:
+   cd  H2-W(110)/
+   
 1. **Create base environment**:
    ./scripts/install_deepmd.sh
    conda activate ml-md-env
@@ -91,6 +109,25 @@ Include essential dependencies: `ASE`, `TensorFlow`, etc.
 6. **Compare DFT and DeepMD predictions**:
    python scripts/plot_comparison.py
      
+7. **Create the LAMMPS environment**:
+   conda env create -f /dinamica/env_lammps.yml
+   conda activate lammps_env
+
+8. **Generate the initial conditions**:
+   python dinamica/vasp_2_lammps.py
+
+
+9. **Run the simulation**:
+   ./dinamica/lanzamiento.sh
+
+10. **Check results**:
+   dinamica/salida_prueba/
+
+Note: Always review and adjust:
+
+input.json → defines neural network training parameters.
+
+in.simulation → defines simulation conditions (timestep, thermostat, number of steps) for LAMMPS.   
 
 ---
 
@@ -103,6 +140,7 @@ Include essential dependencies: `ASE`, `TensorFlow`, etc.
 - TensorFlow 2.9.x
 - matplotlib
 - Conda
+- LAMMPS
 
 ---
 
